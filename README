@@ -1,3 +1,3 @@
-As discussed in in this article (http://www.thedotproduct.org/2010/04/accurate-geo-location-from-apple-iphone-using-navigator-geolocation/) the accuracy of the navigator.geolocation.getCurrentPosition is normally poor. In order to improve it watchPosition is used. 
+As discussed in in this article (http://goo.gl/RVe4h) the accuracy of the navigator.geolocation.getCurrentPosition is normally poor. In order to improve it watchPosition is used. 
 
 This jQuery plugin extends the navigator.geolocation.getCurrentPosition and implements minAccuracy option that uses watchPosition to try to get accurate enough position before triggering the callback.
