@@ -29,7 +29,9 @@
 					if (watchPos!=null){
 						navigator.geolocation.clearWatch(watchPos);
 						watchPos=null;
+						return true;
 					}
+					return false;
 				}
 				watchPos = navigator.geolocation.watchPosition(function(position){
 					if (position.coords.accuracy<=minAccuracy){
@@ -49,10 +51,12 @@
 				}, options);
 
 				setTimeout(function(){
-					cancel();
-					if (best!=null)	success(best);
-					else fail({'message':'timeout'});
+					if (cancel()){
+						if (best!=null)	success(best);
+						else fail({'message':'timeout'});
+					}
 				}, timeout);
+
 			}
 			else{
 				navigator.geolocation.getCurrentPosition(success,fail,options);
